@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "connectorApi": 1,
+  "id": "snmp-connector",
+  "name": "Snmp connector",
+  "description": "Independent snmp inventory collector for Atlas.",
+  "version": "1.0.0",
+  "runtime": "python",
+  "entrypoint": "connector.py",
+  "credentialRequired": true,
+  "configuration": [
+    {
+      "key": "targets",
+      "label": "Explicit IPv4 hosts or networks (up to 1024 addresses)",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "snmpVersion",
+      "label": "SNMP version: 2c or 3",
+      "type": "text",
+      "default": "2c"
+    }
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "57f7367c84bdf0e81162e83c925b4f8a6517c40b727bd6e998bff446b810c434"
+    },
+    {
+      "path": "common/runtime.py",
+      "sha256": "00ddc5770986e5417c4c028d976b05372b353cf1f74410468f0479ee44023ec2"
+    },
+    {
+      "path": "connector.py",
+      "sha256": "6c6eff0fe686c2397b8ae77888a5705087d9333e779df975f09b03bfcdd75eb2"
+    },
+    {
+      "path": "worker/collector.py",
+      "sha256": "6974360efec99da6dd8a7970c040b94ea2d80de28d0fb191a68105606fdef780"
+    },
+    {
+      "path": "worker/runtime.py",
+      "sha256": "3008a07140047c3cccb5402e0ded5eea68b74a0f2f43bac1154267b28083645d"
+    }
+  ]
+}
