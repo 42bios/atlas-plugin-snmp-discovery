@@ -29,3 +29,13 @@ Repository code runs with Atlas application permissions. Checksums verify the do
 ## Development
 
 Run `python -m unittest discover -s tests` before publishing. After modifying declared package files, run `python tools/update_manifest.py` and bump `version` in `atlas-addin.json`. Commit all checksum changes together. CI checks file integrity, Python syntax and collector fixtures without contacting a live system.
+
+## Compatibility regression checks
+
+Run `python3 -m unittest discover -s tests` before release. Fixtures cover upstream variations, unavailable queries and data minimization; they are not proof of a successful connection to every upstream release. The Kubernetes and Proxmox adapters remain fixture-validated until tested against a real installation.
+
+### Discovery gaps and LLDP identities
+
+A run with zero responding devices or missing required interface tables fails and preserves the previous snapshot. Unsupported MIB objects are different from tables that return no entries. Empty tables do not prove the absence of neighbors.
+
+LLDP local identifiers are matched to unique interface identities/descriptions. An explicit `Slot: S Port: P` description can match an interface named `S/P`, as verified on the tested UniFi switches. The local LLDP number is never assumed to be ifIndex. Ambiguous or unmatched observations remain in `discovery.unmatchedNeighbors`; no physical cables or patch-panel paths are inferred. Saturated 32-bit speed values remain unknown unless a valid high-speed value is available.

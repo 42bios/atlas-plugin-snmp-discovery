@@ -9,6 +9,7 @@ from collector import collect
 
 VALUE=re.compile(r'^\.?([0-9.]+)\s*=\s*(.*)$')
 def parse(raw, root):
+    if 'No Such Object' in raw:return None
     result={}
     for line in raw.splitlines():
         match=VALUE.match(line)
@@ -43,10 +44,10 @@ def snapshot(source):
             root='1.3.6.1.2.1.1'
             raw=command('snmpget',address,root+'.1.0')
             if not raw:return None
-            descr=parse(raw,root).get('1.0')
+            descr=(parse(raw,root) or {}).get('1.0')
             if not descr:return None
             rawname=command('snmpget',address,root+'.5.0') or ''
-            return dict(description=descr,name=parse(rawname,root).get('5.0',''))
+            return dict(description=descr,name=(parse(rawname,root) or {}).get('5.0',''))
         def walk(address,oid):
             try: raw=command('snmpwalk',address,oid)
             except subprocess.TimeoutExpired:return None
