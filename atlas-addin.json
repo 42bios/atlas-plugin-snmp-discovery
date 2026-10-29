@@ -4,7 +4,7 @@
   "id": "snmp-connector",
   "name": "Snmp connector",
   "description": "Independent snmp inventory collector for Atlas.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "runtime": "python",
   "entrypoint": "connector.py",
   "credentialRequired": true,
@@ -25,7 +25,7 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "0363879f06b36eeffba07ea2129838eda89d736300f1c54f44a2a2a4ea46b2a3"
+      "sha256": "169045b8186758bea29506c3ec41ba4e85c4f50fc8dbcb9e4f1a2253e7a67b00"
     },
     {
       "path": "common/runtime.py",
@@ -42,6 +42,10 @@
     {
       "path": "worker/runtime.py",
       "sha256": "e010803eda755872258651175615d0c0f0134eae30dee99dad57044d0341f4bd"
+    },
+    {
+      "path": "LICENSE.txt",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
     }
   ]
 }

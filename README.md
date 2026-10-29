@@ -49,3 +49,7 @@ LLDP local identifiers are matched to unique interface identities/descriptions. 
 Real SNMP observations have been imported into Atlas. This release retains the existing collector implementation; package tests cover discovery and parsing. Credentials and explicit target ranges are required, and LLDP observations do not prove passive patch paths.
 
 This documentation release changes setup instructions and runtime descriptions. Collector behavior is unchanged. Review Marketplace updates explicitly; applying an update does not require re-entering saved credentials. Keep credentials out of repositories, issues and screenshots.
+
+## License
+
+Copyright © 2026 42bios. Licensed under **GPL-3.0-only**. See [LICENSE.txt](LICENSE.txt). This applies to this connector’s code and documentation; upstream products and trademarks retain their own rights.
